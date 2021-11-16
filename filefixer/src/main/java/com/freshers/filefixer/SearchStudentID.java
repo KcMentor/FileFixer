@@ -1,5 +1,13 @@
 package com.freshers.filefixer;
 
-public class SearchStudentID implements Search{
-    
+import java.util.ArrayList;
+
+public class SearchStudentID implements Search {
+
+    @Override
+    public int search(String key, ArrayList<PDF> files) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
 }
