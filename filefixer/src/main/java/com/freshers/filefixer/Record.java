@@ -11,6 +11,13 @@ public class Record {
     private String lastModified;
     private String comments;
 
+    public Record(String identifier, String fullName, String participantID, String emailAddress){
+        this.identifier = identifier;
+        this.fullName = fullName;
+        this.participantID = participantID;
+        this.emailAddress = emailAddress;
+    }
+
     public String getFullName() {
         return fullName;
     }
