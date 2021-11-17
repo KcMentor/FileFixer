@@ -7,7 +7,8 @@ public class SearchParticipantID implements Search {
     @Override
     public int search(String key, ArrayList<PDF> files) {
         int index = 0;
-        String regex = "\\D" + key + "\\D";
+        String regex =  ".*\\D" + key + "\\D.*";
+
         for (PDF pdf : files) {
             if (pdf.getName().matches(regex)) {
                 return index;
