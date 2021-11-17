@@ -10,7 +10,7 @@ public class PDF {
     public PDF(File file) {
         this.pdf = file;
         this.name = file.getName();
-        modified = false;
+        this.modified = false;
     }
 
     public String getName() {
