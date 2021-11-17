@@ -43,4 +43,8 @@ public class Record {
         return studentID;
     }
 
+    public boolean isGradeStatus() {
+        return gradeStatus;
+    }
+
 }
