@@ -11,7 +11,7 @@ public class Record {
     private String lastModified;
     private String comments;
 
-    public Record(String identifier, String fullName, String participantID, String emailAddress){
+    public Record(String identifier, String fullName, String participantID, String emailAddress) {
         this.identifier = identifier;
         this.fullName = fullName;
         this.participantID = participantID;
@@ -53,9 +53,5 @@ public class Record {
     public boolean isGradeStatus() {
         return gradeStatus;
     }
-<<<<<<< HEAD
-}
-=======
 
 }
->>>>>>> 5767b786645ce248ebd0549b263aa83ebe746a9d
