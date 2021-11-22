@@ -50,7 +50,31 @@ public class SearchNameTest implements WithAssertions {
     }
 
     @Test
-    public void noParticipantIDS () {
+    public void nameInAllUppercase () {
+        ArrayList<String> keys = new ArrayList<String>(List.of("Beth Morales-Horton", "Clifton Bowen", "Guadalupe De La Vega"));
+        ArrayList<PDF> files = createArraylistWithPDFS(
+            createPDFWithName("BETH MORALES-HORTON 601683_Assignment1_81305512.pdf"),
+            createPDFWithName("Assignment 1 CLIFTON BOWEN 81380485.pdf"),
+            createPDFWithName("601702 81378665 INFO2603 Assignment 1 GUADALUPE DE LA VEGA.pdf")
+        );
+
+        assertThat(keys).allSatisfy(key -> assertThat(searcher.search(key, files)).isEqualTo(keys.indexOf(key)));
+    }
+
+    @Test
+    public void nameInAllLowercase () {
+        ArrayList<String> keys = new ArrayList<String>(List.of("Beth Morales-Horton", "Clifton Bowen", "Guadalupe De La Vega"));
+        ArrayList<PDF> files = createArraylistWithPDFS(
+            createPDFWithName("beth morales-horton 601683_Assignment1_81305512.pdf"),
+            createPDFWithName("Assignment 1 clifton bowen 81380485.pdf"),
+            createPDFWithName("601702 81378665 INFO2603 Assignment 1 guadalupe de la vega.pdf")
+        );
+
+        assertThat(keys).allSatisfy(key -> assertThat(searcher.search(key, files)).isEqualTo(keys.indexOf(key)));
+    }
+
+    @Test
+    public void noParticipantNames () {
         ArrayList<String> keys = new ArrayList<String>(List.of("Beth Morales-Horton", "Clifton Bowen", "Guadalupe De La Vega"));
         ArrayList<PDF> files = createArraylistWithPDFS(
             createPDFWithName("601683_Assignment1_81305512.pdf"),

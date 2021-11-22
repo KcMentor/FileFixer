@@ -7,7 +7,7 @@ public class SearchName implements Search {
     @Override
     public int search(String key, ArrayList<PDF> files) {
         int index = 0, ind = 0, check = 0;
-        String regex = "\\D" + key + "(?!\\d)";
+        String regex = "(?i)(.*[^\\p{Alpha}])?" + key.replaceAll("\\s", "([^\\p{Alpha}]?)") + ".*";
         for (PDF pdf : files) {
             if (pdf.getName().matches(regex)) {
                 ind = index;
