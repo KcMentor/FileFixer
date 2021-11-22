@@ -9,8 +9,13 @@ public class FileFixer {
     private ArrayList<PDF> PDFs;
     private ReaderCSV readerCSV;
     private FileNameReaderPDF readerPDF;
+    private String dir;
 
-    public FileFixer() {
+    public FileFixer(String dir) {
+        this.dir = dir;
+        this.Searches = new ArrayList<Search>();
+        this.Records = new ArrayList<Record>();
+        this.PDFs = new ArrayList<PDF>();
 
     }
 
