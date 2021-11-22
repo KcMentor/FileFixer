@@ -6,8 +6,15 @@ public class SearchStudentID implements Search {
 
     @Override
     public int search(String key, ArrayList<PDF> files) {
-        // TODO Auto-generated method stub
-        return 0;
+        int index = 0;
+        String regex = "^(.*\\D)?" + key + "\\D.*$";
+        for (PDF pdf : files) {
+            if (pdf.getName().matches(regex)) {
+                return index;
+            }
+            index++;
+        }
+        return -1;
     }
 
 }
