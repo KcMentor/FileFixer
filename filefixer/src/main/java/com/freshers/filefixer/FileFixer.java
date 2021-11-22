@@ -37,33 +37,30 @@ public class FileFixer {
         readerPDF.readData(dir);
         records = readerCSV.getRecords();
         PDFs = readerPDF.getPdfs();
+        String key = null;
 
         for (Search s : searches) {
-            if (!PDFs.isEmpty()) {
-                for (Record r : records) {
-                    if (count == 0) {
-                        index = s.search(r.getParticipantID(), PDFs);
-                        if (index > -1) {
-                            renameFile(r, PDFs.get(index));
-                            PDFs.remove(index);
-                        }
-                    } else if (count == 1) {
-                        index = s.search(r.getStudentID(), PDFs);
-                        if (index > -1) {
-                            renameFile(r, PDFs.get(index));
-                            PDFs.remove(index);
-                        }
-                    } else {
-                        index = s.search(r.getFullName(), PDFs);
-                        if (index > -1) {
-                            renameFile(r, PDFs.get(index));
-                            PDFs.remove(index);
-                        }
-                    }
-                }
-            } else {
+            if(PDFs.isEmpty()) {
                 break;
             }
+
+            for (Record r : records) {
+                if (count == 0) {
+                    key = r.getParticipantID();
+                } else if (count == 1) {
+                    key = r.getStudentID();
+                } else {
+                    key = r.getFullName();
+                }
+
+                index = s.search(key, PDFs);
+                if (index > -1) {
+                    renameFile(r, PDFs.get(index));
+                    PDFs.remove(index);
+                }
+
+            }
+
             count++;
         }
 
