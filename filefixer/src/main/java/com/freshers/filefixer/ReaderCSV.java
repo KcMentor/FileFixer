@@ -27,7 +27,7 @@ public class ReaderCSV {
 
             while ((nextRecord = csvReader.readNext()) != null) {
                 String[] pID = nextRecord[0].split("\\s");
-                Record r = new Record(pID[1], nextRecord[1], nextRecord[2], nextRecord[3]);
+                Record r = new Record(pID[1], nextRecord[1], nextRecord[2]);
                 records.add(r);
                 counter++;
             }
