@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 import org.assertj.core.api.WithAssertions;
 
@@ -27,7 +27,7 @@ public class SearchNameTest implements WithAssertions {
 
     @Test
     public void followsConventionWithRandoms () {
-        ArrayList<String> keys = new ArrayList<String>(List.of("Beth Morales-Horton", "Clifton Bowen", "Guadalupe De La Vega"));
+        ArrayList<String> keys = new ArrayList<String>(Arrays.asList("Beth Morales-Horton", "Clifton Bowen", "Guadalupe De La Vega"));
         ArrayList<PDF> files = createArraylistWithPDFS(
             createPDFWithName("1409121490-602637_Beth_Morales-Horton_601683_Assignment1_81305512.pdf"),
             createPDFWithName("1410855605-602322_Clifton_Bowen_601680_81380485.pdf"),
@@ -39,7 +39,7 @@ public class SearchNameTest implements WithAssertions {
 
     @Test
     public void followsConventionWithoutRandoms () {
-        ArrayList<String> keys = new ArrayList<String>(List.of("Beth Morales-Horton", "Clifton Bowen", "Guadalupe De La Vega"));
+        ArrayList<String> keys = new ArrayList<String>(Arrays.asList("Beth Morales-Horton", "Clifton Bowen", "Guadalupe De La Vega"));
         ArrayList<PDF> files = createArraylistWithPDFS(
             createPDFWithName("Beth_Morales-Horton_601683_Assignment1_81305512.pdf"),
             createPDFWithName("Clifton_Bowen_601680_81380485.pdf"),
@@ -51,7 +51,7 @@ public class SearchNameTest implements WithAssertions {
 
     @Test
     public void nameInAllUppercase () {
-        ArrayList<String> keys = new ArrayList<String>(List.of("Beth Morales-Horton", "Clifton Bowen", "Guadalupe De La Vega"));
+        ArrayList<String> keys = new ArrayList<String>(Arrays.asList("Beth Morales-Horton", "Clifton Bowen", "Guadalupe De La Vega"));
         ArrayList<PDF> files = createArraylistWithPDFS(
             createPDFWithName("BETH MORALES-HORTON 601683_Assignment1_81305512.pdf"),
             createPDFWithName("Assignment 1 CLIFTON BOWEN 81380485.pdf"),
@@ -63,7 +63,7 @@ public class SearchNameTest implements WithAssertions {
 
     @Test
     public void nameInAllLowercase () {
-        ArrayList<String> keys = new ArrayList<String>(List.of("Beth Morales-Horton", "Clifton Bowen", "Guadalupe De La Vega"));
+        ArrayList<String> keys = new ArrayList<String>(Arrays.asList("Beth Morales-Horton", "Clifton Bowen", "Guadalupe De La Vega"));
         ArrayList<PDF> files = createArraylistWithPDFS(
             createPDFWithName("beth morales-horton 601683_Assignment1_81305512.pdf"),
             createPDFWithName("Assignment 1 clifton bowen 81380485.pdf"),
@@ -75,7 +75,7 @@ public class SearchNameTest implements WithAssertions {
 
     @Test
     public void noParticipantNames () {
-        ArrayList<String> keys = new ArrayList<String>(List.of("Beth Morales-Horton", "Clifton Bowen", "Guadalupe De La Vega"));
+        ArrayList<String> keys = new ArrayList<String>(Arrays.asList("Beth Morales-Horton", "Clifton Bowen", "Guadalupe De La Vega"));
         ArrayList<PDF> files = createArraylistWithPDFS(
             createPDFWithName("601683_Assignment1_81305512.pdf"),
             createPDFWithName("601680_81380485.pdf"),
