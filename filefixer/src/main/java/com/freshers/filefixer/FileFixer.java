@@ -12,16 +12,56 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 
+/**
+ * This class deals with parsing through the list of PDF files and renaming them to the proper convention.
+ * The files that are renamed successfully are moved to a nested folder
+ */
 public class FileFixer {
+    /**
+     * This list contains all the different types of seaches used
+     */
     private ArrayList<Search> searches;
+
+    /**
+     * This list contains all the records created from the CSV file
+     */
     private ArrayList<Record> records;
+
+    /**
+     * This list contains all the PDF files that are in the folder filesToRename
+     */
     private ArrayList<PDF> PDFs;
+
+    /**
+     * ZipReader object that is used to check for any zip files before processing
+     */
     private ZipReader zipReader;
+
+    /**
+     * ReacherCSV object that parses the CSV files and creates a list of records
+     */
     private ReaderCSV readerCSV;
+
+    /**
+     * FileNameReaderPDF object that parses through all the PDF files in the folder and adds them to an ArrayList
+     */
     private FileNameReaderPDF readerPDF;
+
+    /**
+     * Directory/Path to the folder containing all the PDF files
+     */
     private String dir;
+
+    /**
+     * Path to the nested folder where renamed files are moved to
+     */
     private String subfolderName;
 
+    /**
+     * FileFixer constructor
+     * @param dir Path to folder containing all PDF files
+     * @param subfolderName Path to nested folder where renamed files are moved
+     */
     public FileFixer(String dir, String subfolderName) {
         this.dir = dir;
         this.subfolderName = subfolderName;
@@ -37,7 +77,9 @@ public class FileFixer {
         searches.add(new SearchName());
     }
 
-    /* Searches for files in the PDF array and renames the files that are found */
+    /**
+     * Searches for files in the PDF array and renames the files that are found
+     */
     public void fixFiles() {
         int count = 0, index;
         emptySubFolder();
@@ -85,9 +127,9 @@ public class FileFixer {
 
     }
 
-    /*
-     * Creates the a text file with un-submitted pdf files
-     */
+     /**
+      * Created a text file that shows un-submitted PDF files so it can be reviewed
+      */
     public void createTxt() {
         if (records.size() > 0) {
             try {
@@ -111,10 +153,10 @@ public class FileFixer {
         }
     }
 
-    /*
-     * Checks to see if file is already properly formatted then moves it to the
-     * renamedFiles folder
-     */
+     /**
+      * Checks to see if files is already properly formatted then moves it to the renamedFiles folder
+      * @return True if file is properly formatted
+      */
     public boolean checkFormatted() {
         boolean changed = false;
         int index;
@@ -139,14 +181,24 @@ public class FileFixer {
         return changed;
     }
 
-    /* Renames the file to the correct naming convetion */
+    /**
+     * Renames the files to the correct naming convention
+     * @param record Record object containing the correct data of a student
+     * @param pdf PDF file that must be renamed to correct convention
+     * @return True if file is renamed
+     */
     public boolean renameFile(Record record, PDF pdf) {
         String newName = record.getFullName() + "_" + record.getParticipantID() + "_assignsubmission_file_"
                 + pdf.getName();
         return addFile(pdf, newName);
     }
 
-    /* Moves file to the correct nested folder after they have been renamed */
+    /**
+     * Moves file to the correct nested folder after they have been renamed
+     * @param pdf PDF file that needs to be moved
+     * @param newName New Name of the file after reformatted to convention
+     * @return
+     */
     public boolean addFile(PDF pdf, String newName) {
         Path dest = Paths.get(dir, subfolderName);
         try {
@@ -158,11 +210,21 @@ public class FileFixer {
         return true;
     }
 
+    /**
+     * Checks if subfolder contains files and clears it since that is old data
+     */
     public void emptySubFolder() {
         Path dest = Paths.get(dir, subfolderName);
         if (Files.exists(dest)) {
             for (File file : dest.toFile().listFiles())
                 file.delete();
+        }
+        else{
+            try {
+                Files.createDirectories(dest);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
