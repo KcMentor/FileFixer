@@ -30,8 +30,6 @@ public class ReaderCSVTest implements WithAssertions{
         assertThat(file).isNull();
     }
 
-    
-
     @Test void readFromDirectoryWithoutMoreThanOneCSV () {
         ReaderCSV reader = new ReaderCSV();
         try {

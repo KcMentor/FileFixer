@@ -23,7 +23,7 @@ public class FileFixerTest implements WithAssertions {
     String subName = "renamedFiles";
     FileFixer fixer = new FileFixer(testDir, subName);
   
-    void deleteDirectoryStream(Path path) throws IOException {
+    private void deleteDirectoryStream(Path path) throws IOException {
         Files.walk(path)
           .sorted(Comparator.reverseOrder())
           .map(Path::toFile)
