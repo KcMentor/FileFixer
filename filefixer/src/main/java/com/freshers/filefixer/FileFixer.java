@@ -1,10 +1,17 @@
 package com.freshers.filefixer;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ListIterator;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.time.Clock;
 
 public class FileFixer {
     private ArrayList<Search> searches;
@@ -67,6 +74,25 @@ public class FileFixer {
             }
 
             count++;
+        }
+
+        if(records.size() > 0){
+            try {
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH;mm;ss");  
+                Date date = new Date();
+                File file = new File(dir + "\\Missing PDF Submittions " + formatter.format(date) + ".txt");
+                FileWriter fileWriter = new FileWriter(file.getAbsolutePath());
+                BufferedWriter bw = new BufferedWriter(fileWriter);
+                bw.write("These are the missing files: \n");
+                System.out.println("These are the missing files: ");
+                for(Record remRecords : records){
+                    System.out.println("Name: " + remRecords.getFullName() + "\tStudentID: " + remRecords.getStudentID() + "\tParticipantID" + remRecords.getParticipantID());
+                    bw.write("Name: " + remRecords.getFullName() + "\tStudentID: " + remRecords.getStudentID() + "\tParticipantID" + remRecords.getParticipantID() + "\n");
+                }
+                bw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }
