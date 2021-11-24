@@ -54,7 +54,7 @@ public class FileFixer {
             if (PDFs.isEmpty()) {
                 break;
             }
-            
+
             ListIterator<Record> recordIter = records.listIterator();
             while (recordIter.hasNext()) {
                 r = recordIter.next();
@@ -76,28 +76,40 @@ public class FileFixer {
             count++;
         }
 
-        if(records.size() > 0){
+        createTxt();
+
+    }
+
+    /*
+     * Creates the a text file with un-submitted pdf files
+     */
+    public void createTxt() {
+        if (records.size() > 0) {
             try {
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH;mm;ss");  
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH;mm;ss");
                 Date date = new Date();
                 File file = new File(dir + "\\Missing PDF Submittions " + formatter.format(date) + ".txt");
                 FileWriter fileWriter = new FileWriter(file.getAbsolutePath());
                 BufferedWriter bw = new BufferedWriter(fileWriter);
                 bw.write("These are the missing files: \n");
                 System.out.println("These are the missing files: ");
-                for(Record remRecords : records){
-                    System.out.println("Name: " + remRecords.getFullName() + "\tStudentID: " + remRecords.getStudentID() + "\tParticipantID" + remRecords.getParticipantID());
-                    bw.write("Name: " + remRecords.getFullName() + "\tStudentID: " + remRecords.getStudentID() + "\tParticipantID" + remRecords.getParticipantID() + "\n");
+                for (Record remRecords : records) {
+                    System.out.println("Name: " + remRecords.getFullName() + "\tStudentID: " + remRecords.getStudentID()
+                            + "\tParticipantID" + remRecords.getParticipantID());
+                    bw.write("Name: " + remRecords.getFullName() + "\tStudentID: " + remRecords.getStudentID()
+                            + "\tParticipantID" + remRecords.getParticipantID() + "\n");
                 }
                 bw.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
     }
 
-    /* Checks to see if file is already properly formatted then moves it to the renamedFiles folder */
+    /*
+     * Checks to see if file is already properly formatted then moves it to the
+     * renamedFiles folder
+     */
     public boolean checkFormatted() {
         boolean changed = false;
         int index;
@@ -106,7 +118,7 @@ public class FileFixer {
 
         String regex = "";
         ListIterator<Record> recordIter = records.listIterator();
-        
+
         while (recordIter.hasNext()) {
             r = recordIter.next();
             regex = "^" + r.getFullName() + "_" + r.getParticipantID() + "_assignsubmission_file_.*\\.pdf$";
@@ -141,10 +153,10 @@ public class FileFixer {
         return true;
     }
 
-    public void emptySubFolder(){
+    public void emptySubFolder() {
         Path dest = Paths.get(dir, subfolderName);
-        if(Files.exists(dest)){
-            for(File file: dest.toFile().listFiles())  
+        if (Files.exists(dest)) {
+            for (File file : dest.toFile().listFiles())
                 file.delete();
         }
     }
