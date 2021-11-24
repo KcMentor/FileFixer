@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class SearchName implements Search {
 
+
+    /* Parses through ArrayList of PDF's and searches for student via Name, returning index if found.
+    If more than one PDF is found, a code of -2 is used to prevent errors */
     @Override
     public int search(String key, ArrayList<PDF> files) {
         int index = 0, ind = 0, check = 0;

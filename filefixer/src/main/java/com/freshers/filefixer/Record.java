@@ -1,5 +1,7 @@
 package com.freshers.filefixer;
 
+/* This class is used to create objects which represent each row in the CSV file */
+
 public class Record {
     private String fullName;
     private String participantID;

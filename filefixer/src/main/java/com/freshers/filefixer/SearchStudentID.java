@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class SearchStudentID implements Search {
 
+    /* Parses through ArrayList of PDF's and searches for student via ID, returning index if found */
     @Override
     public int search(String key, ArrayList<PDF> files) {
         int index = 0;

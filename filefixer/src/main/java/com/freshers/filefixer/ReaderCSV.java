@@ -19,11 +19,10 @@ public class ReaderCSV {
         records = new ArrayList<Record>();
     }
 
+    /* Locates a CSV file and creates a record for each row in the CSV file. 
+    All records are stored in an ArrayList and the amount of files is returned */
     public int readData(String path) {
         int counter = 0;
-
-        // String path = "C:/Users/shane/Desktop/UWI/Year 3/Semester 1/COMP 3607/Sample
-        // files and CSVs-20211114/sample3/sample3/Sample 3 CSV.csv";
 
         try {
 

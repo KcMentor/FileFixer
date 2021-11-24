@@ -3,10 +3,7 @@ package com.freshers.filefixer;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-/**
- * Hello world!
- *
- */
+/* Runner class */
 public class App 
 {
     public static void main( String[] args )

@@ -11,11 +11,9 @@ public class FileNameReaderPDF {
         pdfs = new ArrayList<PDF>();
     }
 
+    /* Parses through the folder filesToFix and addes all PDF files to an ArrayList*/
     public int readData(String path) {
         int counter = 0;
-
-        // String path = "C:/Users/shane/Desktop/UWI/Year 3/Semester 1/COMP 3607/Sample
-        // files and CSVs-20211114/sample3/sample3/";
 
         folder = new File(path);
         File[] listOfFiles = folder.listFiles();

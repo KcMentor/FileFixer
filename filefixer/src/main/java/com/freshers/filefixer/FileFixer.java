@@ -30,6 +30,7 @@ public class FileFixer {
         searches.add(new SearchName());
     }
 
+    /* Searches for files in the PDF array and renames the files that are found */
     public void fixFiles() {
 
         int count = 0, index, indexR = 0;
@@ -74,6 +75,7 @@ public class FileFixer {
 
     }
 
+    /* Checks to see if file is already properly formatted then moves it to the renamedFiles folder */
     public boolean checkFormatted() {
         boolean changed = false;
         int index;
@@ -93,12 +95,14 @@ public class FileFixer {
         return changed;
     }
 
+    /* Renames the file to the correct naming convetion */
     public boolean renameFile(Record record, PDF pdf) {
         String newName = record.getFullName() + "_" + record.getParticipantID() + "_assignsubmission_file_"
                 + pdf.getName();
         return addFile(pdf, newName);
     }
 
+    /* Moves file to the correct nested folder after they have been renamed */
     public boolean addFile(PDF pdf, String newName) {
         Path dest = Paths.get(dir, subfolderName);
         try {
