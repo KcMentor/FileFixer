@@ -11,11 +11,11 @@ import org.assertj.core.api.WithAssertions;
 public class SearchParticipantIDTest implements WithAssertions {
     SearchParticipantID searcher = new SearchParticipantID();
 
-    public PDF createPDFWithName(String name) {
+    private PDF createPDFWithName(String name) {
         return new PDF(new File(name));
     }
 
-    public ArrayList<PDF> createArraylistWithPDFS(PDF...pdfs) {
+    private ArrayList<PDF> createArraylistWithPDFS(PDF...pdfs) {
         ArrayList<PDF> pdfList = new ArrayList<PDF>();
 
         for(PDF pdf: pdfs) {

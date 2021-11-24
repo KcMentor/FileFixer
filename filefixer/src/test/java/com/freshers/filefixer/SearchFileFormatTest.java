@@ -17,11 +17,11 @@ public class SearchFileFormatTest implements WithAssertions {
         "^Guadalupe De La Vega_601702_assignsubmission_file_.*\\.pdf$"
         ));
 
-    public PDF createPDFWithName(String name) {
+    private PDF createPDFWithName(String name) {
         return new PDF(new File(name));
     }
 
-    public ArrayList<PDF> createArraylistWithPDFS(PDF...pdfs) {
+    private ArrayList<PDF> createArraylistWithPDFS(PDF...pdfs) {
         ArrayList<PDF> pdfList = new ArrayList<PDF>();
 
         for(PDF pdf: pdfs) {
