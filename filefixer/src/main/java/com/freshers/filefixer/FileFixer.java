@@ -46,7 +46,10 @@ public class FileFixer {
             System.out.println("Error! Could not read from CSV");
             return;
         }
-        readerPDF.readData(dir);
+        if (readerPDF.readData(dir) == 0) {
+            System.out.println("Error! No PDFs found");
+            return;
+        }
         records = readerCSV.getRecords();
         PDFs = readerPDF.getPdfs();
         Record r = null;
