@@ -1,8 +1,6 @@
 package com.freshers.filefixer;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -11,9 +9,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.assertj.core.api.WithAssertions;
 
@@ -52,22 +50,13 @@ public class FileFixerTest implements WithAssertions {
         }
 
         try {
-            List<Path> repoFiles = Files.list(Paths.get(repoDir)).toList();
+            List<Path> repoFiles = Files.list(Paths.get(repoDir)).collect(Collectors.toList());
             for (Path file: repoFiles) {
                 Files.copy(file, testPath.resolve(file.getFileName()));
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        
-
-        
-        
-    }
-
-    
-    public static void createFile(String name) {
-        
+        }  
     }
 
 
@@ -86,7 +75,7 @@ public class FileFixerTest implements WithAssertions {
         fixer.renameFile(rec, pdf);
 
         try {
-            renamedFile = Files.list(Paths.get(testDir, "renamedFiles")).toList();
+            renamedFile = Files.list(Paths.get(testDir, "renamedFiles")).collect(Collectors.toList());
         } catch (Exception e) {
             e.printStackTrace();
         }
