@@ -37,11 +37,13 @@ public class ZipReader {
                     zipFile.extractAll(path);
                 }
             }else{
+                System.out.println("Warning! Zip file is empty.");
                 return;
             }
         }
         catch(IOException e){
             e.printStackTrace();
+            System.out.println("Error! Cannot find Zip file path.");
         }
     }
 
