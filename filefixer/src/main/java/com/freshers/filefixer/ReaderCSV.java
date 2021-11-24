@@ -32,7 +32,12 @@ public class ReaderCSV {
                                     .filter(name -> name.toString().endsWith(".csv"))
                                     .map(Path::toFile)
                                     .collect(Collectors.toList());
-                                    
+            
+            if(files.size() > 1){
+                System.out.println("Error! There is more than 1 CSV present!");
+                System.exit(0);
+            }
+
             FileReader filereader = new FileReader(files.get(0));
 
             CSVReader csvReader = new CSVReaderBuilder(filereader).withSkipLines(1).build();
