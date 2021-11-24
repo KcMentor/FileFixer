@@ -82,5 +82,27 @@ public class FileFixerTest implements WithAssertions {
         
         assertThat(renamedFile).extracting(Path::getFileName).containsExactly(Paths.get(name + "_" + pID + "_assignsubmission_file_" + fName));
     }
+
+    @ParameterizedTest
+    @CsvSource({
+        "601683,Beth Morales-Horton,81305512,Beth_Morales-Horton_601683_assignsubmission_file_Assignment1_81305512.pdf",
+        "601702,Guadalupe De La Vega,81378665,Guadalupe De La Vega_601702_assignsubmission_file_81378665 INFO2603 Assignment 1.pdf"
+        
+    })
+    public void checkFormattedTestAlreadyFormatted(String pID, String name, String sID, String fName) {
+        FileFixer fixer = new FileFixer(testDir, subName);
+        List<Path> renamedFile = null;
+        
+        boolean isFixed = fixer.checkFormatted();
+
+        try {
+            renamedFile = Files.list(Paths.get(testDir, "renamedFiles")).collect(Collectors.toList());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        assertThat(isFixed).isEqualTo(false);
+        assertThat(renamedFile.size()).isEqualTo(0);
+    }
     
 }

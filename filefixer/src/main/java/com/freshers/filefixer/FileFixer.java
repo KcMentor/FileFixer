@@ -83,7 +83,7 @@ public class FileFixer {
         for (Record r : records) {
             regex = "^" + r.getFullName() + "_" + r.getParticipantID() + "_assignsubmission_file_.*\\.pdf$";
             index = searchFileFormat.search(regex, PDFs);
-            if (index > 1) {
+            if (index > -1) {
                 addFile(PDFs.get(index), PDFs.get(index).getName());
                 PDFs.remove(index);
                 changed = true;
