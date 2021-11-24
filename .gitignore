@@ -10,6 +10,12 @@
 .history/
 
 # Maven gitignore from https://github.com/github/gitignore/blob/master/Maven.gitignore
+surefire-reports
+test-classes
+maven-status
+javadoc-bundle-options
+generated-sources
+generated-test-sources
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
