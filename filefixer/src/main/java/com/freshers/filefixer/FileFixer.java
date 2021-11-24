@@ -35,9 +35,9 @@ public class FileFixer {
         int count = 0, index, indexR = 0;
         readerCSV.readData(dir);
         readerPDF.readData(dir);
-        checkFormatted();
         records = readerCSV.getRecords();
         PDFs = readerPDF.getPdfs();
+        checkFormatted();
 
         for (Search s : searches) {
             if (!PDFs.isEmpty()) {
