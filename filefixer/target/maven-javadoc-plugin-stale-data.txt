@@ -1,0 +1,74 @@
+@options
+@packages
+@argfile
+-classpath
+'C:/Users/Work/.m2/repository/com/opencsv/opencsv/5.5.2/opencsv-5.5.2.jar;C:/Users/Work/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar;C:/Users/Work/.m2/repository/org/apache/commons/commons-text/1.9/commons-text-1.9.jar;C:/Users/Work/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar;C:/Users/Work/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar;C:/Users/Work/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar;C:/Users/Work/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar;C:/Users/Work/.m2/repository/org/junit/jupiter/junit-jupiter/5.8.1/junit-jupiter-5.8.1.jar;C:/Users/Work/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar;C:/Users/Work/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar;C:/Users/Work/.m2/repository/org/junit/platform/junit-platform-commons/1.8.1/junit-platform-commons-1.8.1.jar;C:/Users/Work/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar;C:/Users/Work/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.8.1/junit-jupiter-params-5.8.1.jar;C:/Users/Work/.m2/repository/org/junit/junit-bom/5.8.1/junit-bom-5.8.1.pom;C:/Users/Work/.m2/repository/net/lingala/zip4j/zip4j/2.9.1/zip4j-2.9.1.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'1.8'
+-sourcepath
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2021. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'filefixer 1.0 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'filefixer 1.0 API'
+com.freshers.filefixer
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/App.java'
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/FileFixer.java'
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/FileNameReaderPDF.java'
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/Manager.java'
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/PDF.java'
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/ReaderCSV.java'
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/Record.java'
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/Search.java'
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/SearchFileFormat.java'
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/SearchName.java'
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/SearchParticipantID.java'
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/SearchStudentID.java'
+C:\Users\Work\.m2\repository\com\opencsv\opencsv\5.5.2\opencsv-5.5.2.jar = 1636924973465
+C:\Users\Work\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar = 1636924973653
+C:\Users\Work\.m2\repository\org\apache\commons\commons-text\1.9\commons-text-1.9.jar = 1636924973553
+C:\Users\Work\.m2\repository\commons-beanutils\commons-beanutils\1.9.4\commons-beanutils-1.9.4.jar = 1636924973630
+C:\Users\Work\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar = 1636924973502
+C:\Users\Work\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar = 1636739763016
+C:\Users\Work\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar = 1636924973864
+C:\Users\Work\.m2\repository\org\junit\jupiter\junit-jupiter\5.8.1\junit-jupiter-5.8.1.jar = 1636741375217
+C:\Users\Work\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.1\junit-jupiter-api-5.8.1.jar = 1636741375464
+C:\Users\Work\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar = 1636737846878
+C:\Users\Work\.m2\repository\org\junit\platform\junit-platform-commons\1.8.1\junit-platform-commons-1.8.1.jar = 1636741375462
+C:\Users\Work\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar = 1636741375246
+C:\Users\Work\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.8.1\junit-jupiter-params-5.8.1.jar = 1636741375567
+C:\Users\Work\.m2\repository\org\junit\junit-bom\5.8.1\junit-bom-5.8.1.pom = 1636738751979
+C:\Users\Work\.m2\repository\net\lingala\zip4j\zip4j\2.9.1\zip4j-2.9.1.jar = 1637711858838
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\src\main\java = 1636924514371
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\allclasses-index.html = 1637724893488
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\allpackages-index.html = 1637724893491
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\element-list = 1637724893323
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\help-doc.html = 1637724893534
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\index-all.html = 1637724893525
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\index.html = 1637724893527
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\jquery-ui.overrides.css = 1637724893589
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\member-search-index.js = 1637724893499
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\module-search-index.js = 1637724893493
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\overview-tree.html = 1637724893465
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\package-search-index.js = 1637724893497
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\script.js = 1637724893540
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\search.js = 1637724893546
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\stylesheet.css = 1637724893538
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\tag-search-index.js = 1637724893500
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\type-search-index.js = 1637724893497
