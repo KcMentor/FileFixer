@@ -11,19 +11,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvValidationException;
 
+/**
+ * This class reads a CSV file and creates record objects for each row in the file.
+ * The records are stored in an array after being made
+ */
 public class ReaderCSV {
+    /**
+     * A collection of record objects created from the CSV data
+     */
     private ArrayList<Record> records;
 
+    /**
+     * Class constructor
+     * Initilizes the ArrayList of records
+     */
     public ReaderCSV() {
         records = new ArrayList<Record>();
     }
 
-
+    /**
+     * Locates all the CSV files inside the folder and returns the CSV file that is found
+     * If there is more than one CSV file the program cannot work so an error message is displayed
+     * @param path Path to the folder containing all the files
+     * @return The CSV file that is found id retured
+     */
     public File getCSVFile(String path) {
         List<File> files = null;
         try {
@@ -50,8 +65,12 @@ public class ReaderCSV {
         return files.get(0);
     }
 
-    /* Creates a record for each row in the CSV file. 
-    All records are stored in an ArrayList and the amount of files is returned */
+    /**
+     * Locates a CSV file and creates a record for each row in the CSV file.
+     * All records are then added to the ArrayList
+     * @param path Path to folder containing all the PDF files and the CSV
+     * @return The amount of records created from the CSV file.
+     */
     public int readData(String path) {
         int counter = 0;
         File file = null;
@@ -92,6 +111,10 @@ public class ReaderCSV {
         return counter;
     }
 
+    /**
+     * Gets the collection of records
+     * @return The ArrayList of records
+     */
     public ArrayList<Record> getRecords() {
         return records;
     }
