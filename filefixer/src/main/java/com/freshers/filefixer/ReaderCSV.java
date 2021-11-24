@@ -12,15 +12,30 @@ import java.util.stream.Collectors;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 
+/**
+ * This class reads a CSV file and creates record object for each row in the file.
+ * The records are stored in an array after being made.
+ */
 public class ReaderCSV {
+    /**
+     * A collection of record objects created from the CSV data
+     */
     private ArrayList<Record> records;
 
+    /**
+     * Class constructor.
+     * Initilizes the ArrayList of records
+     */
     public ReaderCSV() {
         records = new ArrayList<Record>();
     }
 
-    /* Locates a CSV file and creates a record for each row in the CSV file. 
-    All records are stored in an ArrayList and the amount of files is returned */
+    /**
+     * Locates a CSV file and creates a record for each row in the CSV file.
+     * All records are then added to the ArrayList
+     * @param path Path to folder containing all the PDF files and the CSV
+     * @return The amount of records created from the CSV file.
+     */
     public int readData(String path) {
         int counter = 0;
 
@@ -58,6 +73,10 @@ public class ReaderCSV {
         return counter;
     }
 
+    /**
+     * Gets the collection of records
+     * @return The ArrayList of records
+     */
     public ArrayList<Record> getRecords() {
         return records;
     }

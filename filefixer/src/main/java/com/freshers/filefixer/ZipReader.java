@@ -10,8 +10,18 @@ import java.util.stream.Collectors;
 
 import net.lingala.zip4j.ZipFile;
 
+
+/**
+ * This class extracts any zip file found in the filesToRead folder
+ */
 public class ZipReader {
     
+    /**
+     * Searches for any zipped files and extracts everything to the same folder.
+     * This is done before the other files are processed 
+     * 
+     * @param path This is the path to the hot folder containing all files
+     */
     public void unzip(String path){
         try{
             List<File> files = Files.list(Paths.get(path))

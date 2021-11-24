@@ -2,11 +2,17 @@ package com.freshers.filefixer;
 
 import java.util.ArrayList;
 
+/**
+ * This class searches for the student by their Name
+ */
 public class SearchName implements Search {
 
-
-    /* Parses through ArrayList of PDF's and searches for student via Name, returning index if found.
-    If more than one PDF is found, a code of -2 is used to prevent errors */
+    /**
+     * Parses through ArrayList of PDF's and searched for student via Name
+     * @param key This is what is being searched for.
+     * @param files This is an ArrayList of all the PDF files that are currently in the filesToRename folder
+     * @return The index of the file found
+     */
     @Override
     public int search(String key, ArrayList<PDF> files) {
         int index = 0, ind = 0, check = 0;
