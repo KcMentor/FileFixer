@@ -1,6 +1,7 @@
 package com.freshers.filefixer;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.ListIterator;
 import java.io.BufferedWriter;
@@ -11,7 +12,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.time.Clock;
 
 public class FileFixer {
     private ArrayList<Search> searches;
@@ -40,8 +40,8 @@ public class FileFixer {
 
     /* Searches for files in the PDF array and renames the files that are found */
     public void fixFiles() {
-
         int count = 0, index;
+        emptySubFolder();
         zipReader.unzip(dir);
         readerCSV.readData(dir);
         readerPDF.readData(dir);
@@ -139,6 +139,14 @@ public class FileFixer {
             return false;
         }
         return true;
+    }
+
+    public void emptySubFolder(){
+        Path dest = Paths.get(dir, subfolderName);
+        if(Files.exists(dest)){
+            for(File file: dest.toFile().listFiles())  
+                file.delete();
+        }
     }
 
 }
