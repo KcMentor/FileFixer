@@ -31,45 +31,78 @@ public class FileFixer {
     }
 
     public void fixFiles() {
-        ArrayList<PDF> fixedPDFs = new ArrayList<PDF>();
-        int count = 0, index;
+
+        int count = 0, index, indexR = 0;
         readerCSV.readData(dir);
         readerPDF.readData(dir);
+        checkFormatted();
         records = readerCSV.getRecords();
         PDFs = readerPDF.getPdfs();
-        String key = null;
 
         for (Search s : searches) {
-            if(PDFs.isEmpty()) {
+            if (!PDFs.isEmpty()) {
+                for (Record r : records) {
+                    if (count == 0) {
+                        index = s.search(r.getParticipantID(), PDFs);
+                        if (index > -1) {
+                            renameFile(r, PDFs.get(index));
+                            PDFs.remove(index);
+                            records.remove(indexR);
+                        }
+                    } else if (count == 1) {
+                        index = s.search(r.getStudentID(), PDFs);
+                        if (index > -1) {
+                            renameFile(r, PDFs.get(index));
+                            PDFs.remove(index);
+                            records.remove(indexR);
+                        }
+                    } else {
+                        index = s.search(r.getFullName(), PDFs);
+                        if (index > -1) {
+                            renameFile(r, PDFs.get(index));
+                            PDFs.remove(index);
+                            records.remove(indexR);
+                        }
+                    }
+                    indexR++;
+                }
+            } else {
                 break;
             }
-
-            for (Record r : records) {
-                if (count == 0) {
-                    key = r.getParticipantID();
-                } else if (count == 1) {
-                    key = r.getStudentID();
-                } else {
-                    key = r.getFullName();
-                }
-
-                index = s.search(key, PDFs);
-                if (index > -1) {
-                    renameFile(r, PDFs.get(index));
-                    PDFs.remove(index);
-                }
-
-            }
-
             count++;
         }
 
     }
 
+    public boolean checkFormatted() {
+        boolean changed = false;
+        int count = 0, indexR = 0;
+        String regex = "";
+
+        for (PDF pdf : PDFs) {
+            for (Record r : records) {
+                regex = "^" + r.getFullName() + "_" + r.getParticipantID() + "_assignsubmission_file_.*\\.pdf$";
+                if (pdf.getName().matches(regex)) {
+                    addFile(pdf, pdf.getName());
+                    PDFs.remove(count);
+                    records.remove(indexR);
+                    changed = true;
+                }
+                indexR++;
+            }
+            count++;
+        }
+        return changed;
+    }
+
     public boolean renameFile(Record record, PDF pdf) {
-        Path dest = Paths.get(dir, subfolderName);
         String newName = record.getFullName() + "_" + record.getParticipantID() + "_assignsubmission_file_"
                 + pdf.getName();
+        return addFile(pdf, newName);
+    }
+
+    public boolean addFile(PDF pdf, String newName) {
+        Path dest = Paths.get(dir, subfolderName);
         try {
             Files.move(pdf.getPdf().toPath(), dest.resolve(Paths.get(newName)));
         } catch (Exception e) {
