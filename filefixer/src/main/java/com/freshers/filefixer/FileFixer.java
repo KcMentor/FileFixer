@@ -76,22 +76,20 @@ public class FileFixer {
 
     public boolean checkFormatted() {
         boolean changed = false;
-        int count = 0, indexR = 0;
-        String regex = "";
+        int index;
+        SearchFileFormat searchFileFormat = new SearchFileFormat();
 
-        for (PDF pdf : PDFs) {
-            for (Record r : records) {
-                regex = "^" + r.getFullName() + "_" + r.getParticipantID() + "_assignsubmission_file_.*\\.pdf$";
-                if (pdf.getName().matches(regex)) {
-                    addFile(pdf, pdf.getName());
-                    PDFs.remove(count);
-                    records.remove(indexR);
-                    changed = true;
-                }
-                indexR++;
+        String regex = "";
+        for (Record r : records) {
+            regex = "^" + r.getFullName() + "_" + r.getParticipantID() + "_assignsubmission_file_.*\\.pdf$";
+            index = searchFileFormat.search(regex, PDFs);
+            if (index > 1) {
+                addFile(PDFs.get(index), PDFs.get(index).getName());
+                PDFs.remove(index);
+                changed = true;
             }
-            count++;
         }
+
         return changed;
     }
 
