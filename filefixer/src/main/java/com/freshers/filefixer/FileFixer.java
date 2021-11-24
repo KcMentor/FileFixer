@@ -43,7 +43,10 @@ public class FileFixer {
         int count = 0, index;
         emptySubFolder();
         zipReader.unzip(dir);
-        readerCSV.readData(dir);
+        if (readerCSV.readData(dir) == -1) {
+            System.out.println("Error! Could not read from CSV");
+            return;
+        }
         readerPDF.readData(dir);
         records = readerCSV.getRecords();
         PDFs = readerPDF.getPdfs();
