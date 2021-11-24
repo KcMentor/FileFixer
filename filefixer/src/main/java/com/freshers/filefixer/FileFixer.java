@@ -214,6 +214,13 @@ public class FileFixer {
             for (File file : dest.toFile().listFiles())
                 file.delete();
         }
+        else{
+            try {
+                Files.createDirectories(dest);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }
