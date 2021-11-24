@@ -1,8 +1,7 @@
 package com.freshers.filefixer;
 
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
-import java.io.File;
+import java.util.ListIterator;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -32,43 +31,37 @@ public class FileFixer {
 
     public void fixFiles() {
 
-        int count = 0, index, indexR = 0;
+        int count = 0, index;
         readerCSV.readData(dir);
         readerPDF.readData(dir);
         records = readerCSV.getRecords();
         PDFs = readerPDF.getPdfs();
+        Record r = null;
         checkFormatted();
 
         for (Search s : searches) {
-            if (!PDFs.isEmpty()) {
-                for (Record r : records) {
-                    if (count == 0) {
-                        index = s.search(r.getParticipantID(), PDFs);
-                        if (index > -1) {
-                            renameFile(r, PDFs.get(index));
-                            PDFs.remove(index);
-                            records.remove(indexR);
-                        }
-                    } else if (count == 1) {
-                        index = s.search(r.getStudentID(), PDFs);
-                        if (index > -1) {
-                            renameFile(r, PDFs.get(index));
-                            PDFs.remove(index);
-                            records.remove(indexR);
-                        }
-                    } else {
-                        index = s.search(r.getFullName(), PDFs);
-                        if (index > -1) {
-                            renameFile(r, PDFs.get(index));
-                            PDFs.remove(index);
-                            records.remove(indexR);
-                        }
-                    }
-                    indexR++;
-                }
-            } else {
+            if (PDFs.isEmpty()) {
                 break;
             }
+            
+            ListIterator<Record> recordIter = records.listIterator();
+            while (recordIter.hasNext()) {
+                r = recordIter.next();
+                if (count == 0) {
+                    index = s.search(r.getParticipantID(), PDFs);
+                } else if (count == 1) {
+                    index = s.search(r.getStudentID(), PDFs);
+                } else {
+                    index = s.search(r.getFullName(), PDFs);
+                }
+
+                if (index > -1) {
+                    renameFile(r, PDFs.get(index));
+                    PDFs.remove(index);
+                    recordIter.remove();
+                }
+            }
+
             count++;
         }
 
@@ -78,14 +71,19 @@ public class FileFixer {
         boolean changed = false;
         int index;
         SearchFileFormat searchFileFormat = new SearchFileFormat();
+        Record r = null;
 
         String regex = "";
-        for (Record r : records) {
+        ListIterator<Record> recordIter = records.listIterator();
+        
+        while (recordIter.hasNext()) {
+            r = recordIter.next();
             regex = "^" + r.getFullName() + "_" + r.getParticipantID() + "_assignsubmission_file_.*\\.pdf$";
             index = searchFileFormat.search(regex, PDFs);
             if (index > -1) {
                 addFile(PDFs.get(index), PDFs.get(index).getName());
                 PDFs.remove(index);
+                recordIter.remove();
                 changed = true;
             }
         }
