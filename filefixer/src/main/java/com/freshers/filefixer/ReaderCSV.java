@@ -31,13 +31,21 @@ public class ReaderCSV {
                                     .filter(name -> name.toString().endsWith(".csv"))
                                     .map(Path::toFile)
                                     .collect(Collectors.toList());
-                                    
+            
+            if(files.size() > 1){
+                System.out.println("Error! More than one CSV present");
+                System.exit(0);
+            }
+            
             FileReader filereader = new FileReader(files.get(0));
 
             CSVReader csvReader = new CSVReaderBuilder(filereader).withSkipLines(1).build();
             String[] nextRecord;
 
             while ((nextRecord = csvReader.readNext()) != null) {
+                if(!nextRecord[0].contains("Participant")){
+                    continue;
+                }
                 String[] pID = nextRecord[0].split("\\s");
                 Record r = new Record(pID[1], nextRecord[1], nextRecord[2]);
                 records.add(r);

@@ -10,6 +10,7 @@ public class FileFixer {
     private ArrayList<Search> searches;
     private ArrayList<Record> records;
     private ArrayList<PDF> PDFs;
+    private ZipReader zipReader;
     private ReaderCSV readerCSV;
     private FileNameReaderPDF readerPDF;
     private String dir;
@@ -21,6 +22,7 @@ public class FileFixer {
         this.searches = new ArrayList<Search>();
         this.records = new ArrayList<Record>();
         this.PDFs = new ArrayList<PDF>();
+        this.zipReader = new ZipReader();
         this.readerCSV = new ReaderCSV();
         this.readerPDF = new FileNameReaderPDF();
 
@@ -33,6 +35,7 @@ public class FileFixer {
     public void fixFiles() {
 
         int count = 0, index;
+        zipReader.unzip(dir);
         readerCSV.readData(dir);
         readerPDF.readData(dir);
         records = readerCSV.getRecords();
