@@ -40,6 +40,7 @@ com.freshers.filefixer
 'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/SearchName.java'
 'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/SearchParticipantID.java'
 'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/SearchStudentID.java'
+'C:/Users/Work/Desktop/Github Code/FileFixer/filefixer/src/main/java/com/freshers/filefixer/ZipReader.java'
 C:\Users\Work\.m2\repository\com\opencsv\opencsv\5.5.2\opencsv-5.5.2.jar = 1636924973465
 C:\Users\Work\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar = 1636924973653
 C:\Users\Work\.m2\repository\org\apache\commons\commons-text\1.9\commons-text-1.9.jar = 1636924973553
@@ -56,19 +57,19 @@ C:\Users\Work\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.8.1\junit-
 C:\Users\Work\.m2\repository\org\junit\junit-bom\5.8.1\junit-bom-5.8.1.pom = 1636738751979
 C:\Users\Work\.m2\repository\net\lingala\zip4j\zip4j\2.9.1\zip4j-2.9.1.jar = 1637711858838
 C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\src\main\java = 1636924514371
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\allclasses-index.html = 1637724893488
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\allpackages-index.html = 1637724893491
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\element-list = 1637724893323
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\help-doc.html = 1637724893534
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\index-all.html = 1637724893525
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\index.html = 1637724893527
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\jquery-ui.overrides.css = 1637724893589
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\member-search-index.js = 1637724893499
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\module-search-index.js = 1637724893493
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\overview-tree.html = 1637724893465
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\package-search-index.js = 1637724893497
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\script.js = 1637724893540
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\search.js = 1637724893546
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\stylesheet.css = 1637724893538
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\tag-search-index.js = 1637724893500
-C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\type-search-index.js = 1637724893497
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\allclasses-index.html = 1637803280013
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\allpackages-index.html = 1637803280017
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\element-list = 1637803279875
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\help-doc.html = 1637803280062
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\index-all.html = 1637803280054
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\index.html = 1637803280056
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\jquery-ui.overrides.css = 1637803280401
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\member-search-index.js = 1637803280023
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\module-search-index.js = 1637803280019
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\overview-tree.html = 1637803279992
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\package-search-index.js = 1637803280021
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\script.js = 1637803280100
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\search.js = 1637803280101
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\stylesheet.css = 1637803280080
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\tag-search-index.js = 1637803280025
+C:\Users\Work\Desktop\Github Code\FileFixer\filefixer\target\site\apidocs\type-search-index.js = 1637803280022
