@@ -27,4 +27,9 @@ Files to be renamed should be placed in
 ```
 ...\filefixer\filesToRename
 ```
+The App can be run using:
+```
+mvn compile exec:java -Dexec.mainClass=com.freshers.filefixer.App
+```
+It can also be run from within the App class file.
     
