@@ -26,24 +26,27 @@ public class ReaderCSVTest implements WithAssertions{
 
     @Test void readFromDirectoryWithoutCSV () {
         ReaderCSV reader = new ReaderCSV();
-        File file = reader.getCSVFile("./src/test/java/com/freshers/filefixer/testData/renamedFiles".replace("/", File.separator));
+        File file = reader.getCSVFile(testPath.resolve("renamedFiles").toString());
         assertThat(file).isNull();
     }
 
-    @Test void readFromDirectoryWithoutMoreThanOneCSV () {
+    @Test void readFromDirectoryWithMoreThanOneCSV () {
         ReaderCSV reader = new ReaderCSV();
+   
         try {
-            Files.copy(Paths.get(repoDir, "Test.csv"), Paths.get(testDir, "Test.csv"));
-            Files.copy(Paths.get(repoDir, "Test.csv"), Paths.get(testDir, "Copy.csv"));
+            Files.deleteIfExists(testPath.resolve("Test.csv"));
+            Files.deleteIfExists(testPath.resolve("Copy.csv"));
+            Files.copy(repoPath.resolve("Test.csv"), testPath.resolve("Test.csv"));
+            Files.copy(repoPath.resolve("Test.csv"), testPath.resolve("Copy.csv"));
         } catch (IOException e) {
             assert false;
         }
         
-        File file = reader.getCSVFile("./src/test/java/com/freshers/filefixer/testData".replace("/", File.separator));
+        File file = reader.getCSVFile(testPath.toString());
         
         try {
-            Files.delete(Paths.get(testDir, "Test.csv"));
-            Files.delete(Paths.get(testDir, "Copy.csv"));
+            Files.delete(testPath.resolve("Test.csv"));
+            Files.delete(testPath.resolve("Copy.csv"));
         } catch (IOException e) {
             assert false;
         }
