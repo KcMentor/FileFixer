@@ -7,11 +7,16 @@ This project is a java application renames files to confrom with the upload form
 ## Running
 
 Download or clone the git repository. Java 8 and Maven are required to run this project.
+Navigate to the directory
+
+```
+...FileFixer\filefixer
+```
 
 The project can be built and tests run automatically using:
 
 ```bash
-  mvn verify
+ mvn verify
 ```
 Tests can also be run separately by using:
 ```bash
