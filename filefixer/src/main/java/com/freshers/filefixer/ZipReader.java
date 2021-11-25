@@ -37,7 +37,6 @@ public class ZipReader {
                     zipFile.extractAll(path);
                 }
             }else{
-                System.out.println("Warning! Zip file is empty.");
                 return;
             }
         }
