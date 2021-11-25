@@ -32,4 +32,8 @@ The App can be run using:
 mvn compile exec:java -Dexec.mainClass=com.freshers.filefixer.App
 ```
 It can also be run from within the App class file.
+
+
+## Javadoc
+The Javadoc can be found [in the repository here.](https://github.com/KcMentor/FileFixer/tree/main/filefixer/target/site/apidocs)
     
